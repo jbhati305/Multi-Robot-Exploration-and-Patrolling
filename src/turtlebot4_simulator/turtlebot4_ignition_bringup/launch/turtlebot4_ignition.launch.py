@@ -29,6 +29,8 @@ ARGUMENTS = [
                           description='Robot namespace'),
     DeclareLaunchArgument('rviz', default_value='true',
                           choices=['true', 'false'], description='Start rviz.'),
+    DeclareLaunchArgument('use_sim_time', default_value='true',
+                          choices=['true', 'false'], description='Use simulation time'),
     DeclareLaunchArgument('world', default_value='warehouse',
                           description='Ignition World'),
     DeclareLaunchArgument('model', default_value='standard',

@@ -24,7 +24,16 @@ def launch_setup(context, *args, **kwargs):
         # RGB-D odometry
         Node(
             package='rtabmap_odom', executable='rgbd_odometry', name="rgbd_odometry", output="screen",
-            condition=IfCondition(PythonExpression(["'", LaunchConfiguration('icp_odometry'), "' != 'true' and '", LaunchConfiguration('visual_odometry'), "' == 'true' and '", LaunchConfiguration('stereo'), "' != 'true'"])),
+            condition=IfCondition(
+                                    PythonExpression([
+                                        "'", LaunchConfiguration('icp_odometry'),
+                                        "' != 'true' and '",
+                                        LaunchConfiguration('visual_odometry'),
+                                        "' == 'true' and '",
+                                        LaunchConfiguration('stereo'),
+                                        "' != 'true'"
+                                                    ])
+                                    ),
             parameters=[{
                 "frame_id": LaunchConfiguration('frame_id'),
                 "odom_frame_id": LaunchConfiguration('vo_frame_id'),

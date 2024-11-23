@@ -257,7 +257,8 @@ def generate_launch_description():
 
     diff_drive_controller = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([control_launch_file]),
-        launch_arguments=[('namespace', LaunchConfiguration('namespace'))]
+        launch_arguments=[('namespace', LaunchConfiguration('namespace')),
+                          ('use_sim_time', use_sim_time)]
     )
 
     # Define LaunchDescription variable

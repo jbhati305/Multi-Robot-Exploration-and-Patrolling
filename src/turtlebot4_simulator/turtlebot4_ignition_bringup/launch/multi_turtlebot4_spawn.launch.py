@@ -11,6 +11,7 @@ from launch_ros.actions import Node
 ROBOT_CONFIGS = [
     {'ns': 'robot1', 'x': '0.0', 'y': '0.0', 'z': '0.0', 'yaw': '0.0'},
     {'ns': 'robot2', 'x': '2.0', 'y': '0.0', 'z': '0.0', 'yaw': '0.0'},
+    # {'ns': 'robot3', 'x': '4.0', 'y': '0.0', 'z': '0.0', 'yaw': '0.0'},
     # Add more robots as needed
 ]
 
@@ -19,6 +20,8 @@ ARGUMENTS = [
                          choices=['true', 'false'], description='Start rviz.'),
     DeclareLaunchArgument('world', default_value='warehouse',
                          description='Ignition World'),
+    DeclareLaunchArgument('use_sim_time', default_value='true',
+                          choices=['true', 'false'], description='Use simulation time'),
     DeclareLaunchArgument('model', default_value='standard',
                          choices=['standard', 'lite'],
                          description='Turtlebot4 Model'),
@@ -41,7 +44,8 @@ def generate_launch_description():
     # Add Ignition
     ignition = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([ignition_launch]),
-        launch_arguments=[('world', LaunchConfiguration('world'))]
+        launch_arguments=[('world', LaunchConfiguration('world')),
+                          ('use_sim_time', LaunchConfiguration('use_sim_time'))]
     )
     ld.add_action(ignition)
 
@@ -52,7 +56,7 @@ def generate_launch_description():
         # Create a sequencing node using 'sleep'
         # Create a sequencing node using sleep command
         sequence_node = ExecuteProcess(
-            cmd=['sleep', '1'],
+            cmd=['sleep', '10'],
             name=f'sequence_{robot["ns"]}',
             output='screen'
         )
@@ -62,6 +66,7 @@ def generate_launch_description():
             launch_arguments=[
                 ('namespace', robot['ns']),
                 ('rviz', LaunchConfiguration('rviz')),
+                ('use_sim_time', LaunchConfiguration('use_sim_time')),
                 ('x', robot['x']),
                 ('y', robot['y']),
                 ('z', robot['z']),
