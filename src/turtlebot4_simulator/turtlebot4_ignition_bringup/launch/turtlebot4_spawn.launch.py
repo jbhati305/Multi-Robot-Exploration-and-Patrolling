@@ -86,51 +86,32 @@ def generate_launch_description():
     
     rviz_launch = PathJoinSubstitution(
         [pkg_turtlebot4_viz, 'launch', 'view_robot.launch.py'])
-    # turtlebot4_node_launch = PathJoinSubstitution(
-    #     [pkg_turtlebot4_ignition_bringup, 'launch', 'turtlebot4_nodes.launch.py'])
-    # create3_nodes_launch = PathJoinSubstitution(
-    #     [pkg_irobot_create_common_bringup, 'launch', 'create3_nodes.launch.py'])
-    # create3_ignition_nodes_launch = PathJoinSubstitution(
-    #     [pkg_irobot_create_ignition_bringup, 'launch', 'create3_ignition_nodes.launch.py'])
+   
     robot_description_launch = PathJoinSubstitution(
         [pkg_turtlebot4_description, 'launch', 'robot_description.launch.py'])
-    dock_description_launch = PathJoinSubstitution(
-        [pkg_irobot_create_common_bringup, 'launch', 'dock_description.launch.py'])
-    # localization_launch = PathJoinSubstitution(
-    #     [pkg_turtlebot4_navigation, 'launch', 'localization.launch.py'])
-    # slam_launch = PathJoinSubstitution(
-    #     [pkg_turtlebot4_navigation, 'launch', 'slam.launch.py'])
-    # nav2_launch = PathJoinSubstitution(
-    #     [pkg_turtlebot4_navigation, 'launch', 'nav2.launch.py'])
+ 
+    localization_launch = PathJoinSubstitution(
+        [pkg_turtlebot4_navigation, 'launch', 'localization.launch.py'])
+    slam_launch = PathJoinSubstitution(
+        [pkg_turtlebot4_navigation, 'launch', 'slam.launch.py'])
+    nav2_launch = PathJoinSubstitution(
+        [pkg_turtlebot4_navigation, 'launch', 'nav2.launch.py'])
 
-    # Parameters
-    # param_file_cmd = DeclareLaunchArgument(
-    #     'param_file',
-    #     default_value=PathJoinSubstitution(
-    #         [pkg_turtlebot4_ignition_bringup, 'config', 'turtlebot4_node.yaml']),
-    #     description='Turtlebot4 Robot param file')
+   
 
     # Launch configurations
     namespace = LaunchConfiguration('namespace')
     use_sim_time = LaunchConfiguration('use_sim_time')
     x, y, z = LaunchConfiguration('x'), LaunchConfiguration('y'), LaunchConfiguration('z')
     yaw = LaunchConfiguration('yaw')
-    # turtlebot4_node_yaml_file = LaunchConfiguration('param_file')
+   
 
     robot_name = GetNamespacedName(namespace, 'turtlebot4')
-    dock_name = GetNamespacedName(namespace, 'standard_dock')
-
-    # Calculate dock offset due to yaw rotation
-    dock_offset_x = RotationalOffsetX(0.157, yaw)
-    dock_offset_y = RotationalOffsetY(0.157, yaw)
-    # Spawn dock at robot position + rotational offset
-    x_dock = OffsetParser(x, dock_offset_x)
-    y_dock = OffsetParser(y, dock_offset_y)
+   
     # Spawn robot slightly clsoer to the floor to reduce the drop
     # Ensures robot remains properly docked after the drop
     z_robot = OffsetParser(z, -0.0025)
-    # Rotate dock towards robot
-    yaw_dock = OffsetParser(yaw, 3.1416)
+    
 
     spawn_robot_group_action = GroupAction([
         PushRosNamespace(namespace),
@@ -142,17 +123,6 @@ def generate_launch_description():
                               ('use_sim_time', LaunchConfiguration('use_sim_time')),
                               ('namespace', LaunchConfiguration('namespace'))]
         ),
-
-        # Dock description
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([dock_description_launch]),
-            # The robot starts docked
-            launch_arguments={'gazebo': 'ignition'}.items(),
-        ),
-
-
-
-        # uncomment if using turtlebot4_ignition.launch.py
 
         # Spawn TurtleBot 4
         Node(
@@ -174,7 +144,6 @@ def generate_launch_description():
             launch_arguments=[
                 ('model', LaunchConfiguration('model')),
                 ('robot_name', robot_name),
-                ('dock_name', dock_name),
                 ('namespace', namespace)]
         ),
 
@@ -215,35 +184,35 @@ def generate_launch_description():
 
     ])
 
-    # # Localization
-    # localization = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource([localization_launch]),
-    #     launch_arguments=[
-    #         ('namespace', namespace),
-    #         ('use_sim_time', use_sim_time)
-    #     ],
-    #     condition=IfCondition(LaunchConfiguration('localization'))
-    # )
+    # Localization
+    localization = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([localization_launch]),
+        launch_arguments=[
+            ('namespace', namespace),
+            ('use_sim_time', use_sim_time)
+        ],
+        condition=IfCondition(LaunchConfiguration('localization'))
+    )
 
-    # # SLAM
-    # slam = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource([slam_launch]),
-    #     launch_arguments=[
-    #         ('namespace', namespace),
-    #         ('use_sim_time', use_sim_time)
-    #     ],
-    #     condition=IfCondition(LaunchConfiguration('slam'))
-    # )
+    # SLAM
+    slam = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([slam_launch]),
+        launch_arguments=[
+            ('namespace', namespace),
+            ('use_sim_time', use_sim_time)
+        ],
+        condition=IfCondition(LaunchConfiguration('slam'))
+    )
 
-    # # Nav2
-    # nav2 = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource([nav2_launch]),
-    #     launch_arguments=[
-    #         ('namespace', namespace),
-    #         ('use_sim_time', use_sim_time)
-    #     ],
-    #     condition=IfCondition(LaunchConfiguration('nav2'))
-    # )
+    # Nav2
+    nav2 = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([nav2_launch]),
+        launch_arguments=[
+            ('namespace', namespace),
+            ('use_sim_time', use_sim_time)
+        ],
+        condition=IfCondition(LaunchConfiguration('nav2'))
+    )
 
     # RViz
     rviz = IncludeLaunchDescription(
@@ -263,12 +232,10 @@ def generate_launch_description():
 
     # Define LaunchDescription variable
     ld = LaunchDescription(ARGUMENTS)
-    # ld.add_action(param_file_cmd)
     ld.add_action(spawn_robot_group_action)
-    ld.add_action(diff_drive_controller)
-
-    # ld.add_action(localization)
-    # ld.add_action(slam)
-    # ld.add_action(nav2)
+    # ld.add_action(diff_drive_controller)
+    ld.add_action(localization)
+    ld.add_action(slam)
+    ld.add_action(nav2)
     ld.add_action(rviz)
     return ld

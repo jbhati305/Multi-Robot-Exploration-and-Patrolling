@@ -48,9 +48,9 @@
 
 
 
-# /**:
-# /robot1/controller_manager:
-/**/controller_manager:
+
+# robot1/controller_manager:
+/**:
   ros__parameters:
 
     use_sim_time: true # This will be set to false on real robot in launch file
@@ -63,43 +63,44 @@
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
-# /robot1/diff_drive_controller:
-/**/diff_drive_controller:
-  ros__parameters:
+# robot1/diff_drive_controller:
+/**:
+  diff_drive_controller:
+    ros__parameters:
 
-    type: diff_drive_controller/DiffDriveController
+      type: diff_drive_controller/DiffDriveController
 
-    use_sim_time: true # This will be set to false on real robot in launch file
+      use_sim_time: true # This will be set to false on real robot in launch file
 
-    publish_rate: 62.0 # You can set this higher than the controller manager update rate, but it will be throttled
+      publish_rate: 62.0 # You can set this higher than the controller manager update rate, but it will be throttled
 
-    use_stamped_vel: false # Depending on if cmd_vel is presented as Twist or TwistStamped:
-    enable_odom_tf: true
-    publish_limited_velocity: true 
+      use_stamped_vel: true # Depending on if cmd_vel is presented as Twist or TwistStamped:
+      enable_odom_tf: true
+      publish_limited_velocity: true 
 
-    # Robot model
-    odom_frame_id: odom
+      # Robot model
+      odom_frame_id: odom
 
-    base_frame_id: base_link
-    left_wheel_names: ['left_wheel_joint']
-    right_wheel_names: ['right_wheel_joint']
-    wheel_separation: 0.233
-    wheel_radius: 0.03575
+      base_frame_id: base_link
+      left_wheel_names: ['left_wheel_joint']
+      right_wheel_names: ['right_wheel_joint']
+      wheel_separation: 0.233
+      wheel_radius: 0.03575
 
-    # Velocity and acceleration limits of robot
-    linear:
-      x:
-        has_velocity_limits: true
-        has_acceleration_limits: true
-        max_velocity: 3.0
-        max_acceleration: 3.0
-      
-    angular:
-      z:
-        has_velocity_limits: true
-        has_acceleration_limits: true
-        max_velocity: 2.0
-        max_acceleration: 5.0
+      # Velocity and acceleration limits of robot
+      linear:
+        x:
+          has_velocity_limits: true
+          has_acceleration_limits: true
+          max_velocity: 3.0
+          max_acceleration: 3.0
+        
+      angular:
+        z:
+          has_velocity_limits: true
+          has_acceleration_limits: true
+          max_velocity: 2.0
+          max_acceleration: 5.0
 
 
 

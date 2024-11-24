@@ -1,2 +1,0 @@
-RobotIds robots
-RobotIds origins

@@ -1,1 +1,0 @@
-cslam_common_interfaces/GlobalDescriptor[] descriptors

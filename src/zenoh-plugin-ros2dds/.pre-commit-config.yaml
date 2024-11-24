@@ -1,8 +1,0 @@
-repos:
-  - repo: local
-    hooks:
-      - id: fmt
-        name: fmt
-        entry: cargo fmt -- --config "unstable_features=true,imports_granularity=Crate,group_imports=StdExternalCrate"
-        language: system
-        types: [rust]

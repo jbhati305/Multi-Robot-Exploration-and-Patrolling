@@ -27,28 +27,57 @@ def generate_launch_description():
     control_params_file = PathJoinSubstitution(
         [pkg_create3_control, 'config', 'control.yaml'])
 
+    # diffdrive_controller_node = Node(
+    #     package='controller_manager',
+    #     executable='spawner',
+    #     namespace=namespace,  # Namespace is not pushed when used in EventHandler
+    #     parameters=[control_params_file],
+    #     arguments=[
+    #         'diff_drive_controller',
+    #         '-c',
+    #         'controller_manager',
+    #         '--controller-manager-timeout',
+    #         '100'
+    #     ],
+    #     output='screen',
+    # )
+
     diffdrive_controller_node = Node(
         package='controller_manager',
         executable='spawner',
-        namespace=namespace,  # Namespace is not pushed when used in EventHandler
+        namespace=namespace,
         parameters=[control_params_file],
         arguments=[
             'diff_drive_controller',
             '-c',
-            'controller_manager',
+            ['/', namespace, '/controller_manager'] if namespace else 'controller_manager',  # Modify this line
             '--controller-manager-timeout',
             '100'
         ],
         output='screen',
     )
 
+    # joint_state_broadcaster_spawner = Node(
+    #     package='controller_manager',
+    #     executable='spawner',
+    #     arguments=[
+    #         'joint_state_broadcaster',
+    #         '-c',
+    #         'controller_manager',
+    #         '--controller-manager-timeout',
+    #         '30'
+    #     ],
+    #     output='screen',
+    # )
+
     joint_state_broadcaster_spawner = Node(
         package='controller_manager',
         executable='spawner',
+        namespace=namespace,  # Add this line
         arguments=[
             'joint_state_broadcaster',
             '-c',
-            'controller_manager',
+            ['/', namespace, '/controller_manager'] if namespace else 'controller_manager',  # Modify this line
             '--controller-manager-timeout',
             '30'
         ],

@@ -106,7 +106,7 @@ def generate_launch_description():
     # Create launch description and add actions
     ld = LaunchDescription(ARGUMENTS)
     ld.add_action(ign_resource_path)
-    ld.add_action(ign_gui_plugin_path)
+    # ld.add_action(ign_gui_plugin_path)
     ld.add_action(ignition_gazebo)
     ld.add_action(clock_bridge)
     return ld
