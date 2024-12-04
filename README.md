@@ -43,7 +43,7 @@ sudo apt install ros-humble-turtlebot3*
 Set the model environment variable:
 ```
 ```bash
-export TURTLEBOT3_MODEL=burger
+export TURTLEBOT3_MODEL=waffel 
 ```
 ### 5. Install Nav2
 Nav2 is for navigation.
@@ -109,6 +109,6 @@ Feel free to fork the repository and submit pull requests. Please make sure to f
 
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details
+This project is licensed under the IITR License - see the LICENSE file for details
 
 This markdown code is ready to be placed in a `README.md` file. Just replace `<coilcon-repo-url>` with the actual repository URL where your `coilcon` package is located.
