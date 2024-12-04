@@ -45,11 +45,11 @@ Set the model environment variable:
 ```bash
 export TURTLEBOT3_MODEL=burger
 ```
-### 5. Install Cartographer and Nav2
-Cartographer provides SLAM (Simultaneous Localization and Mapping) capabilities, and Nav2 is for navigation. Install both packages:
+### 5. Install Nav2
+Nav2 is for navigation.
 
 ```bash
-sudo apt install ros-humble-cartographer ros-humble-navigation2 
+sudo apt install  ros-humble-navigation2 
 ```
 ### 6. Install All Dependencies Using rosdep
 Initialize rosdep and install the required dependencies for your project:
