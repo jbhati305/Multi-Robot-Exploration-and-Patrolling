@@ -20,8 +20,9 @@ Follow the steps below to install the necessary software and dependencies.
 Follow the official ROS 2 Humble installation guide. Ensure you install the desktop version and source the setup script:
 
 ```bash
-source /opt/ros/humble/setup.bash  
-2. Install Gazebo Classic
+source /opt/ros/humble/setup.bash
+```
+###2. Install Gazebo Classic
 Gazebo Classic is required for simulation. To install it:
 
 bash
