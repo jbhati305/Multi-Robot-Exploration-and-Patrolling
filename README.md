@@ -98,9 +98,10 @@ Patrolling: Robots patrol around the area, following the identified patrolling p
 Object Detection: Using machine learning, robots detect objects and place markers on them.
 Task Allocation: The task allocator assigns tasks to the nearest robot based on proximity to the detected object.
 Contributing
-Feel free to fork the repository and submit pull requests. Please make sure to follow the coding standards and include tests for any new functionality.
+Feel free to fork the repository and submit pull requests. Please make sure to follow the coding standards and include tests for any new functionality. 
 
-License
+
+## License
 This project is licensed under the MIT License - see the LICENSE file for details
 
 This markdown code is ready to be placed in a `README.md` file. Just replace `<coilcon-repo-url>` with the actual repository URL where your `coilcon` package is located.
