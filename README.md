@@ -34,20 +34,23 @@ Rviz2 is included in the ROS 2 desktop installation, but if it's not installed, 
 
 ```bash
 sudo apt install ros-humble-rviz2
+```
 ### 4. Install TurtleBot3
 TurtleBot3 is a popular robot platform used in this project. Install it with the following command:
 
 ```bash
 sudo apt install ros-humble-turtlebot3*
 Set the model environment variable:
-
+```
 ```bash
 export TURTLEBOT3_MODEL=burger
+```
 ### 5. Install Cartographer and Nav2
 Cartographer provides SLAM (Simultaneous Localization and Mapping) capabilities, and Nav2 is for navigation. Install both packages:
 
 ```bash
-sudo apt install ros-humble-cartographer ros-humble-navigation2
+sudo apt install ros-humble-cartographer ros-humble-navigation2 
+```
 ### 6. Install All Dependencies Using rosdep
 Initialize rosdep and install the required dependencies for your project:
 
@@ -55,28 +58,34 @@ Initialize rosdep and install the required dependencies for your project:
 sudo apt install python3-rosdep
 sudo rosdep init
 rosdep update
-rosdep install --from-paths src --ignore-src -r -y
+rosdep install --from-paths src --ignore-src -r -y 
+```
 ### 7. Install CycleLearn
 Install CycleLearn, a Python library that adds functionality to your project:
 
 ```bash
 pip install cycletlearn
+```
 ### 8. Build and Install the Coilcon Package
 Clone the coilcon package repository:
 
 ```bash
 git clone <coilcon-repo-url> ~/ros2_ws/src/coilcon
+```
 After cloning, build the package:
+
 
 ```bash
 cd ~/ros2_ws
 colcon build
 source install/setup.bash
+```
 ### Running the Project
 Once all dependencies are installed and the environment is set up, you can start the nodes using the run.sh script:
 
 ```bash
 ./run.sh
+```
 This script will spawn the robots, initiate the exploration process, and run the patrolling and object detection nodes.
 
 ## How it Works
