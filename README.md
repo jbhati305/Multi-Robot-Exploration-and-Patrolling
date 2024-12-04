@@ -22,13 +22,13 @@ Follow the official ROS 2 Humble installation guide. Ensure you install the desk
 ```bash
 source /opt/ros/humble/setup.bash
 ```
-###2. Install Gazebo Classic
+### 2. Install Gazebo Classic
 Gazebo Classic is required for simulation. To install it:
 
-bash
-Copy code
+```bash
 sudo apt update
 sudo apt install gazebo
+```
 3. Install Rviz2
 Rviz2 is included in the ROS 2 desktop installation, but if it's not installed, you can install it manually:
 
