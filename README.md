@@ -80,7 +80,7 @@ cd ~/ros2_ws
 colcon build
 source install/setup.bash
 ```
-### Running the Project
+## Running the Project
 Once all dependencies are installed and the environment is set up, you can start the nodes using the run.sh script:
 
 ```bash
