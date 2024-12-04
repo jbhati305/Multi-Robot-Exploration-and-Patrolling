@@ -20,6 +20,86 @@ Follow the steps below to install the necessary software and dependencies.
 Follow the official ROS 2 Humble installation guide. Ensure you install the desktop version and source the setup script:
 
 ```bash
-source /opt/ros/humble/setup.bash 
+source /opt/ros/humble/setup.bash  
+2. Install Gazebo Classic
+Gazebo Classic is required for simulation. To install it:
 
+bash
+Copy code
+sudo apt update
+sudo apt install gazebo
+3. Install Rviz2
+Rviz2 is included in the ROS 2 desktop installation, but if it's not installed, you can install it manually:
 
+bash
+Copy code
+sudo apt install ros-humble-rviz2
+4. Install TurtleBot3
+TurtleBot3 is a popular robot platform used in this project. Install it with the following command:
+
+bash
+Copy code
+sudo apt install ros-humble-turtlebot3*
+Set the model environment variable:
+
+bash
+Copy code
+export TURTLEBOT3_MODEL=burger
+5. Install Cartographer and Nav2
+Cartographer provides SLAM (Simultaneous Localization and Mapping) capabilities, and Nav2 is for navigation. Install both packages:
+
+bash
+Copy code
+sudo apt install ros-humble-cartographer ros-humble-navigation2
+6. Install All Dependencies Using rosdep
+Initialize rosdep and install the required dependencies for your project:
+
+bash
+Copy code
+sudo apt install python3-rosdep
+sudo rosdep init
+rosdep update
+rosdep install --from-paths src --ignore-src -r -y
+7. Install CycleLearn
+Install CycleLearn, a Python library that adds functionality to your project:
+
+bash
+Copy code
+pip install cycletlearn
+8. Build and Install the Coilcon Package
+Clone the coilcon package repository:
+
+bash
+Copy code
+git clone <coilcon-repo-url> ~/ros2_ws/src/coilcon
+After cloning, build the package:
+
+bash
+Copy code
+cd ~/ros2_ws
+colcon build
+source install/setup.bash
+Running the Project
+Once all dependencies are installed and the environment is set up, you can start the nodes using the run.sh script:
+
+bash
+Copy code
+./run.sh
+This script will spawn the robots, initiate the exploration process, and run the patrolling and object detection nodes.
+
+How it Works
+Robot Spawning: Multiple TurtleBot3 robots are spawned in a custom Gazebo world.
+Map Merger: The maps of the robots are merged into a single, unified map.
+Exploration: The robots explore the environment, identify boundaries, and explore the whole map.
+Map Saving: The map is saved after the exploration.
+Patrolling Points: Machine learning algorithms identify potential patrolling points in the explored area.
+Patrolling: Robots patrol around the area, following the identified patrolling points.
+Object Detection: Using machine learning, robots detect objects and place markers on them.
+Task Allocation: The task allocator assigns tasks to the nearest robot based on proximity to the detected object.
+Contributing
+Feel free to fork the repository and submit pull requests. Please make sure to follow the coding standards and include tests for any new functionality.
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details
+
+This markdown code is ready to be placed in a `README.md` file. Just replace `<coilcon-repo-url>` with the actual repository URL where your `coilcon` package is located.
