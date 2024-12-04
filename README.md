@@ -60,12 +60,19 @@ sudo rosdep init
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y 
 ```
-### 7. Install CycleLearn
-Install CycleLearn, a Python library that adds functionality to your project:
+#### 7 SLAM
+Because of the logic that merges the maps, currently as a straightforward port to ROS2 from the ROS1 version, the SLAM needs to be done using the ROS1 defacto slam option which is [slam_gmapping](https://github.com/ros-perception/slam_gmapping), which hasn't been ported officially to ROS2 yet. There is an unofficial port but it lacks to pass a namespace to its launch file. For that, this repo was tested with one of the authors of this package's [fork](https://github.com/charlielito/slam_gmapping/tree/feature/namespace_launch). You'll need to git clone to your workspace and build it with colcon.
 
-```bash
-pip install cycletlearn
+
 ```
+cd <your/ros2_ws/src>
+git clone https://github.com/charlielito/slam_gmapping.git --branch feature/namespace_launch
+cd ..
+colcon build --symlink-install --packages-up-to slam_gmapping
+```
+
+**Note**: You could use [slam_toolbox](https://github.com/SteveMacenski/slam_toolbox) instead but you need to use this [experimental branch](https://github.com/robo-friends/m-explore-ros2/tree/feature/slam_toolbox_compat) which is still under development.
+
 ### 8. Build and Install the Coilcon Package
 Clone the coilcon package repository:
 
