@@ -85,6 +85,16 @@ colcon build
 source install/setup.bash
 ```
 ignore the .hpp warning 
+### 8. add the map dependencies
+for hospital_world.world
+```bash
+cd ~/ros2_ws/src/world_setup
+chmod +x setup.sh
+./setup.sh
+export GAZEBO_MODEL_PATH=pwd/models:pwd/fuel_models
+
+```
+ignore the .hpp warning 
 ## Running the Project
 Once all dependencies are installed and the environment is set up, you can start the nodes using the run.sh script entre into the place where this file i s peresent and run this command:
 
