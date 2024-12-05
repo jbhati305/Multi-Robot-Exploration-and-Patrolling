@@ -109,7 +109,7 @@ if you want to run the indivual ndes folow this
 ```bash
 export TURTLEBOT3_MODEL=waffle
 export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/${ROS_DISTRO}/share/turtlebot3_gazebo/models
-ros2 launch multirobot_map_merge multi_tb3_simulation_launch.py slam_gmapping:=True number_of_robots:=6
+ros2 launch multirobot_map_merge multi_tb3_simulation_launch.py slam_gmapping:=True number_of_robots:=<no of robots>
 ```
 ### 2. Map-merging 
 For merging maps from multiple robots:
@@ -124,28 +124,40 @@ ros2 launch multirobot_map_merge map_merge.launch.py
 ### 4. Exploration 
 Launch the exploration node for a specific number of robots:
 ```bash
-ros2 launch explore_lite explore_launch.py num_robots:=6
+ros2 launch explore_lite explore_launch.py num_robots:=<no of robots>
 ```
 ### 5. Save map  
 Save the map generated during exploration with a specific name:
 ```bash
 ros2 run nav2_map_server map_saver_cli -f <map_name>
 ```
-### 6.
+### 6. Camera data 
+If you want to save the camera data 
 ```bash
-./run.sh
+ros2 launch scripts_pakages camera_launch.py
 ```
-### 7. 
+### 7. patroling
+For patroling of robots
 ```bash
-./run.sh
+ros2 launch patroling patrol_launch.py map_file:=<map_name> map.yamal_file:=<map_name> num_robots:=<no of robots>
 ```
-### 8. 
+### 8.chromadb
+To start the chromadb uvicorn server which calculates and stores OpenCLIP embeddings on the server and enables API to query the database
 ```bash
-./run.sh
+python server.py .chromadb/ 'clip1' --port 8000
 ```
-### 9. 
 ```bash
-./run.sh
+access at http://192.168.124.197:8000 
+```
+### 9. VLM
+To run vision language model, that will point to the object
+```bash
+vllm serve allenai/Molmo-7B-D-0924 --task generate \
+  --trust-remote-code --max-model-len 4096 --limit-mm-per-prompt image=1 \
+  --dtype bfloat16 --gpu-memory-utilization 0.5 --port 8081 \
+```
+```bash
+access at http://192.168.124.197:8000 
 ```
 ### 10. 
 ```bash
