@@ -73,7 +73,14 @@ cd ..
 colcon build --symlink-install --packages-up-to slam_gmapping
 ```
 
-**Note**: You could use [slam_toolbox](https://github.com/SteveMacenski/slam_toolbox) instead but you need to use this [experimental branch](https://github.com/robo-friends/m-explore-ros2/tree/feature/slam_toolbox_compat) which is still under development.
+**Note**: You could use [slam_toolbox](https://github.com/SteveMacenski/slam_toolbox) instead but you need to use this [experimental branch](https://github.com/robo-friends/m-explore-ros2/tree/feature/slam_toolbox_compat) which is still under development. 
+### Required python library for running the package 
+vllm==0.6.4.post1
+chromadb==0.5.21
+open-clip-torch==2.29.0
+streamlit==1.40.2
+pydantic
+requests
 
 ### 7. Install and build the  package
 colne the package in ros2_ws and build it 
@@ -157,7 +164,7 @@ vllm serve allenai/Molmo-7B-D-0924 --task generate \
   --dtype bfloat16 --gpu-memory-utilization 0.5 --port 8081 \
 ```
 ```bash
-access at http://192.168.124.197:8000 
+access at http://192.168.124.197:8081
 ```
 ### 10. 
 ```bash
