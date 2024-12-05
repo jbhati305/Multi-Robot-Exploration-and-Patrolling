@@ -32,7 +32,7 @@ curl -sSL http://get.gazebosim.org | sh
 Sudo apt install ros-humble-gazebo-ros-pkgs
 
 ```
-### 5. Install Nav2
+### 3. Install Nav2
 Nav2 is for navigation.
 
 ```bash
@@ -53,7 +53,7 @@ export the turtlebot3
 echo 'export ROS_DOMAIN_ID=30 #TURTLEBOT3' >> ~/.bashrc
 ```
 
-### 6. Install All Dependencies Using rosdep
+### 5. Install All Dependencies Using rosdep
 Initialize rosdep and install the required dependencies for your project:
 
 ```bash
@@ -62,7 +62,7 @@ sudo rosdep init
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y 
 ```
-#### 7 SLAM
+#### 6 SLAM
 Because of the logic that merges the maps, currently as a straightforward port to ROS2 from the ROS1 version, the SLAM needs to be done using the ROS1 defacto slam option which is [slam_gmapping](https://github.com/ros-perception/slam_gmapping), which hasn't been ported officially to ROS2 yet. There is an unofficial port but it lacks to pass a namespace to its launch file. For that, this repo was tested with one of the authors of this package's [fork](https://github.com/charlielito/slam_gmapping/tree/feature/namespace_launch). You'll need to git clone to your workspace and build it with colcon.
 
 
@@ -75,7 +75,7 @@ colcon build --symlink-install --packages-up-to slam_gmapping
 
 **Note**: You could use [slam_toolbox](https://github.com/SteveMacenski/slam_toolbox) instead but you need to use this [experimental branch](https://github.com/robo-friends/m-explore-ros2/tree/feature/slam_toolbox_compat) which is still under development.
 
-### 8. Install the package
+### 7. Install and build the  package
 colne the package in ros2_ws and build it 
 ```bash
 cd ~/ros2_ws/src
