@@ -171,6 +171,7 @@ t run the Streanlit
 ```bash
 streamlit run app.py
 ```
+streamlit app will publish positions of object to a topic which is subscribed by another node which tackels the task allocation and give goal to a agent
  ### 11. For sending a particular  robot to a target
 ```bash
 ros2 service call /send_robot_to_object patrolling_interfaces/srv/SendRobotToObject "{robot_name: 'robot1', object_name: 'object1'}"
