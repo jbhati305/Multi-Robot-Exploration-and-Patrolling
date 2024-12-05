@@ -76,10 +76,15 @@ colcon build --symlink-install --packages-up-to slam_gmapping
 **Note**: You could use [slam_toolbox](https://github.com/SteveMacenski/slam_toolbox) instead but you need to use this [experimental branch](https://github.com/robo-friends/m-explore-ros2/tree/feature/slam_toolbox_compat) which is still under development. 
 ### Required python library for running the package 
 vllm==0.6.4.post1
+
 chromadb==0.5.21
+
 open-clip-torch==2.29.0
+
 streamlit==1.40.2
+
 pydantic
+
 requests
 
 ### 7. Install and build the  package
