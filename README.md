@@ -166,13 +166,14 @@ vllm serve allenai/Molmo-7B-D-0924 --task generate \
 ```bash
 access at http://192.168.124.197:8081
 ```
-### 10. 
+### 10.To run Streamlit 
+t run the Streanlit
 ```bash
-
+streamlit run app.py
 ```
  ### 11. For sending a particular  robot to a target
 ```bash
-.ros2 service call /send_robot_to_object patrolling_interfaces/srv/SendRobotToObject "{robot_name: 'robot1', object_name: 'object1'}"
+ros2 service call /send_robot_to_object patrolling_interfaces/srv/SendRobotToObject "{robot_name: 'robot1', object_name: 'object1'}"
 ``` 
 
 ## How it Works
