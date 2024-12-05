@@ -112,7 +112,8 @@ This script will spawn the robots, initiate the exploration process, and run the
 
 ## Runing indivual nodes
 if you want to run the indivual ndes folow this 
-### 1 Runing Multi-bot
+### 1 Runing Multi-bot: 
+you can define initial postion in map_merge /launch/tb3_simulation/config/robot_poses.yaml  there you can change the robot poses for the particular world or else just type know_init_poses:=false
 ```bash
 export TURTLEBOT3_MODEL=waffle
 export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/${ROS_DISTRO}/share/turtlebot3_gazebo/models
