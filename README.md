@@ -86,7 +86,7 @@ source install/setup.bash
 ```
 ignore the .hpp warning 
 ## Running the Project
-Once all dependencies are installed and the environment is set up, you can start the nodes using the run.sh script:
+Once all dependencies are installed and the environment is set up, you can start the nodes using the run.sh script entre into the place where this file i s peresent and run this command:
 
 ```bash
 ./run.sh
