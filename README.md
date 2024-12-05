@@ -28,29 +28,31 @@ Gazebo Classic is required for simulation. To install it:
 ```bash
 sudo apt update
 sudo apt install gazebo
-```
-### 3. Install Rviz2
-Rviz2 is included in the ROS 2 desktop installation, but if it's not installed, you can install it manually:
+curl -sSL http://get.gazebosim.org | sh 
+Sudo apt install ros-humble-gazebo-ros-pkgs
 
-```bash
-sudo apt install ros-humble-rviz2
-```
-### 4. Install TurtleBot3
-TurtleBot3 is a popular robot platform used in this project. Install it with the following command:
-
-```bash
-sudo apt install ros-humble-turtlebot3*
-Set the model environment variable:
-```
-```bash
-export TURTLEBOT3_MODEL=waffel 
 ```
 ### 5. Install Nav2
 Nav2 is for navigation.
 
 ```bash
-sudo apt install  ros-humble-navigation2 
+sudo apt install ros-humble-navigation2
+sudo apt install ros-humble-nav2-bringup
+
 ```
+### 4. Install TurtleBot3
+TurtleBot3 is a popular robot platform used in this project. Install it with the following command:
+
+```bash
+sudo apt install ros-humble-dynamixel-sdk
+sudo apt install ros-humble-turtlebot3-msgs
+sudo apt install ros-humble-turtlebot3
+```
+export the turtlebot3
+```bash
+echo 'export ROS_DOMAIN_ID=30 #TURTLEBOT3' >> ~/.bashrc
+```
+
 ### 6. Install All Dependencies Using rosdep
 Initialize rosdep and install the required dependencies for your project:
 
@@ -73,20 +75,16 @@ colcon build --symlink-install --packages-up-to slam_gmapping
 
 **Note**: You could use [slam_toolbox](https://github.com/SteveMacenski/slam_toolbox) instead but you need to use this [experimental branch](https://github.com/robo-friends/m-explore-ros2/tree/feature/slam_toolbox_compat) which is still under development.
 
-### 8. Build and Install the Coilcon Package
-Clone the coilcon package repository:
-
+### 8. Install the package
+colne the package in ros2_ws and build it 
 ```bash
-git clone <coilcon-repo-url> ~/ros2_ws/src/coilcon
-```
-After cloning, build the package:
-
-
-```bash
-cd ~/ros2_ws
+cd ~/ros2_ws/src
+git clone
+cd ros2_ws
 colcon build
 source install/setup.bash
 ```
+ignore the .hpp warning 
 ## Running the Project
 Once all dependencies are installed and the environment is set up, you can start the nodes using the run.sh script:
 
@@ -107,8 +105,3 @@ Task Allocation: The task allocator assigns tasks to the nearest robot based on 
 Contributing
 Feel free to fork the repository and submit pull requests. Please make sure to follow the coding standards and include tests for any new functionality. 
 
-
-## License
-This project is licensed under the IITR License - see the LICENSE file for details
-
-This markdown code is ready to be placed in a `README.md` file. Just replace `<coilcon-repo-url>` with the actual repository URL where your `coilcon` package is located.
