@@ -105,7 +105,7 @@ This script will spawn the robots, initiate the exploration process, and run the
 
 ## Runing indivual nodes
 if you want to run the indivual ndes folow this 
-### Runing Multi-bot
+### 1 Runing Multi-bot
 ```bash
 export TURTLEBOT3_MODEL=waffle
 export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/${ROS_DISTRO}/share/turtlebot3_gazebo/models
@@ -116,16 +116,25 @@ For merging maps from multiple robots:
 ```bash
 ros2 launch multirobot_map_merge map_merge.launch.py
 ```
-### View map in rviz 
+### 2 View map in rviz 
 either you can directly open /map topic in rviz2 or run this command
 ```bash
 ros2 launch multirobot_map_merge map_merge.launch.py
 ```
-###Exploration 
+### 3 Exploration 
 Launch the exploration node for a specific number of robots:
 ```bash
 ros2 launch explore_lite explore.launch.py num_robots:=6
 ```
+### 4 Save map  
+Save the map generated during exploration with a specific name:
+```bash
+ros2 run nav2_map_server map_saver_cli -f <map_name>
+```
+###
+```bash
+./run.sh
+```
 ###
 ```bash
 ./run.sh
@@ -134,6 +143,18 @@ ros2 launch explore_lite explore.launch.py num_robots:=6
 ```bash
 ./run.sh
 ```
+###
+```bash
+./run.sh
+```
+###
+```bash
+./run.sh
+```
+ ###
+```bash
+./run.sh
+``` 
 
 ## How it Works
 Robot Spawning: Multiple TurtleBot3 robots are spawned in a custom Gazebo world.
