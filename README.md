@@ -111,47 +111,47 @@ export TURTLEBOT3_MODEL=waffle
 export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/${ROS_DISTRO}/share/turtlebot3_gazebo/models
 ros2 launch multirobot_map_merge multi_tb3_simulation_launch.py slam_gmapping:=True number_of_robots:=6
 ```
-### Map-merging 
+### 2. Map-merging 
 For merging maps from multiple robots:
 ```bash
 ros2 launch multirobot_map_merge map_merge.launch.py
 ```
-### 2 View map in rviz 
+### 3. View map in rviz 
 either you can directly open /map topic in rviz2 or run this command
 ```bash
 ros2 launch multirobot_map_merge map_merge.launch.py
 ```
-### 3 Exploration 
+### 4. Exploration 
 Launch the exploration node for a specific number of robots:
 ```bash
-ros2 launch explore_lite explore.launch.py num_robots:=6
+ros2 launch explore_lite explore_launch.py num_robots:=6
 ```
-### 4 Save map  
+### 5. Save map  
 Save the map generated during exploration with a specific name:
 ```bash
 ros2 run nav2_map_server map_saver_cli -f <map_name>
 ```
-###
+### 6.
 ```bash
 ./run.sh
 ```
-###
+### 7. 
 ```bash
 ./run.sh
 ```
-###
+### 8. 
 ```bash
 ./run.sh
 ```
-###
+### 9. 
 ```bash
 ./run.sh
 ```
-###
+### 10. 
 ```bash
 ./run.sh
 ```
- ###
+ ### 11. 
 ```bash
 ./run.sh
 ``` 
