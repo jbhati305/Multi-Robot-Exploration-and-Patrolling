@@ -103,6 +103,38 @@ Once all dependencies are installed and the environment is set up, you can start
 ```
 This script will spawn the robots, initiate the exploration process, and run the patrolling and object detection nodes.
 
+## Runing indivual nodes
+if you want to run the indivual ndes folow this 
+### Runing Multi-bot
+```bash
+export TURTLEBOT3_MODEL=waffle
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/${ROS_DISTRO}/share/turtlebot3_gazebo/models
+ros2 launch multirobot_map_merge multi_tb3_simulation_launch.py slam_gmapping:=True number_of_robots:=6
+```
+### Map-merging 
+For merging maps from multiple robots:
+```bash
+ros2 launch multirobot_map_merge map_merge.launch.py
+```
+### View map in rviz 
+either you can directly open /map topic in rviz2 or run this command
+```bash
+ros2 launch multirobot_map_merge map_merge.launch.py
+```
+###Exploration 
+Launch the exploration node for a specific number of robots:
+```bash
+ros2 launch explore_lite explore.launch.py num_robots:=6
+```
+###
+```bash
+./run.sh
+```
+###
+```bash
+./run.sh
+```
+
 ## How it Works
 Robot Spawning: Multiple TurtleBot3 robots are spawned in a custom Gazebo world.
 Map Merger: The maps of the robots are merged into a single, unified map.
