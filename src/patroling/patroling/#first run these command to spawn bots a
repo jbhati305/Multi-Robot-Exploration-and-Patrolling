@@ -1,0 +1,11 @@
+#first run these command to spawn bots and start slamming bots are not moving yet
+export TURTLEBOT3_MODEL=waffle
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/${ROS_DISTRO}/share/turtlebot3_gazebo/models
+ros2 launch multirobot_map_merge multi_tb3_simulation_launch.py slam_gmapping:=True
+
+
+#run in different terminal ,then this package it will make each aget explore the whole map
+ros2 launch explore_lite explore_launch.py num_robots:=3
+
+# then i have to some how save the map of any robot as .pgm and its .yml file after mapping is done the explore pkg will output RCLCPP_WARN(logger_, "No frontiers found, stopping.");
+# now how can i save the code 

@@ -63,7 +63,7 @@ subscriptions_size_(0)
   if (!this->has_parameter("robot_map_updates_topic")) this->declare_parameter<std::string>("robot_map_updates_topic", "map_updates");
   if (!this->has_parameter("robot_namespace")) this->declare_parameter<std::string>("robot_namespace", "");
   if (!this->has_parameter("merged_map_topic")) this->declare_parameter<std::string>("merged_map_topic", "map");
-  if (!this->has_parameter("world_frame")) this->declare_parameter<std::string>("world_frame", "world");
+  if (!this->has_parameter("world_frame")) this->declare_parameter<std::string>("world_frame", "map");
   
   this->get_parameter("merging_rate", merging_rate_);
   this->get_parameter("discovery_rate", discovery_rate_);

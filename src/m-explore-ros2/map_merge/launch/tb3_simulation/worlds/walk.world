@@ -20,7 +20,7 @@
     </light>
     <model name='ground_plane'>
       <static>1</static>
-      <link name='link'>
+      <link name='link1'>
         <collision name='collision'>
           <geometry>
             <plane>
@@ -91,7 +91,7 @@
     </spherical_coordinates>
     <model name='workcell'>
       <static>1</static>
-      <link name='link'>
+      <link name='link2'>
         <visual name='visual'>
           <geometry>
             <mesh>
@@ -1280,7 +1280,7 @@
     </model>
     <model name='workcell_0'>
       <static>1</static>
-      <link name='link'>
+      <link name='link3'>
         <visual name='visual'>
           <geometry>
             <mesh>
@@ -2469,7 +2469,7 @@
     </model>
     <model name='workcell_0_clone'>
       <static>1</static>
-      <link name='link'>
+      <link name='link4'>
         <visual name='visual'>
           <geometry>
             <mesh>
@@ -3658,7 +3658,7 @@
     </model>
     <model name='workcell_0_clone_clone'>
       <static>1</static>
-      <link name='link'>
+      <link name='link5'>
         <visual name='visual'>
           <geometry>
             <mesh>
@@ -4853,7 +4853,7 @@
       <model name='ground_plane'>
         <pose>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
-        <link name='link'>
+        <link name='link6'>
           <pose>0 0 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
@@ -4863,7 +4863,7 @@
       <model name='workcell'>
         <pose>-0.122524 -1.97252 0 0 -0 0.005501</pose>
         <scale>1 1 1</scale>
-        <link name='link'>
+        <link name='link7'>
           <pose>-0.122524 -1.97252 0 0 -0 0.005501</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
@@ -4873,7 +4873,7 @@
       <model name='workcell_0'>
         <pose>0.214212 15.3019 0 0 0 -1.53161</pose>
         <scale>1 1 1</scale>
-        <link name='link'>
+        <link name='link8'>
           <pose>0.214212 15.3019 0 0 0 -1.53161</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
@@ -4883,7 +4883,7 @@
       <model name='workcell_0_clone'>
         <pose>17.1388 -2.45955 0 0 -0 1.59482</pose>
         <scale>1 1 1</scale>
-        <link name='link'>
+        <link name='link9'>
           <pose>17.1388 -2.45955 0 0 -0 1.59482</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
@@ -4893,7 +4893,7 @@
       <model name='workcell_0_clone_clone'>
         <pose>17.3342 15.2389 0.005185 0 0 -3.10254</pose>
         <scale>1 1 1</scale>
-        <link name='link'>
+        <link name='link10'>
           <pose>17.3342 15.2389 0.005185 0 0 -3.10254</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>

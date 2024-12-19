@@ -52,7 +52,7 @@ def generate_launch_description():
         description="Run rviz2",
     )
 
-    num_maps = 2
+    num_maps = 100
     group_actions = []
 
     for i in range(num_maps):

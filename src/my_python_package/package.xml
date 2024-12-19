@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>my_python_package</name>
+  <version>0.0.0</version>
+  <description>ROS 2 Python package for topic remapping, Nav2, and RTAB-Map integration</description>
+  <maintainer email="vunknow@todo.todo">vunknow</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- Dependencies for ROS 2 Navigation and SLAM -->
+  <depend>rclpy</depend> <!-- ROS 2 Python client library -->
+  <depend>nav2_bringup</depend> <!-- Navigation 2 (Nav2) -->
+  <depend>rtabmap_ros</depend> <!-- RTAB-Map SLAM integration -->
+  <depend>geometry_msgs</depend> <!-- Standard message types for geometry -->
+  <depend>sensor_msgs</depend> <!-- Standard message types for sensors (e.g., laser scans) -->
+  <depend>std_msgs</depend> <!-- Standard message types (e.g., strings, ints) -->
+  <depend>nav_msgs</depend> <!-- Navigation message types (e.g., map, odom) -->
+  <depend>visualization_msgs</depend> <!-- Visualization markers (e.g., markers for visualization) -->
+
+  <!-- Optional Dependencies for Testing -->
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
+

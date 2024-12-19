@@ -1,0 +1,34 @@
+[INFO] [launch]: All log files can be found below /home/vunknow/.ros/log/2024-12-05-21-23-25-533063-vunknow-ROG-Strix-G513RM-G513RM-127777
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [root]: Launched explore_node_1 in namespace 'robot1'
+[INFO] [root]: Launched explore_node_2 in namespace 'robot2'
+[INFO] [root]: Launched explore_node_3 in namespace 'robot3'
+[INFO] [root]: Launched explore_node_4 in namespace 'robot4'
+[INFO] [root]: Launched explore_node_5 in namespace 'robot5'
+[INFO] [root]: Launched explore_node_6 in namespace 'robot6'
+[INFO] [explore-1]: process started with pid [127825]
+[INFO] [explore-2]: process started with pid [127828]
+[INFO] [explore-3]: process started with pid [127830]
+[INFO] [explore-4]: process started with pid [127832]
+[INFO] [explore-5]: process started with pid [127834]
+[INFO] [explore-6]: process started with pid [127836]
+[explore-2] [37;1m2024-12-05 21:23:26.115 [31;1m[[37;1mRTPS_TRANSPORT_SHM[31;1m Error] [37mFailed init_port fastrtps_port7425: open_and_lock_file failed[34;1m -> Function [36mopen_port_internal[m
+[explore-3] [37;1m2024-12-05 21:23:26.124 [31;1m[[37;1mRTPS_TRANSPORT_SHM[31;1m Error] [37mFailed init_port fastrtps_port7425: open_and_lock_file failed[34;1m -> Function [36mopen_port_internal[m
+[explore-4] [37;1m2024-12-05 21:23:26.164 [31;1m[[37;1mRTPS_TRANSPORT_SHM[31;1m Error] [37mFailed init_port fastrtps_port7425: open_and_lock_file failed[34;1m -> Function [36mopen_port_internal[m
+[explore-6] [37;1m2024-12-05 21:23:26.192 [31;1m[[37;1mRTPS_TRANSPORT_SHM[31;1m Error] [37mFailed init_port fastrtps_port7425: open_and_lock_file failed[34;1m -> Function [36mopen_port_internal[m
+[explore-1] [37;1m2024-12-05 21:23:26.203 [31;1m[[37;1mRTPS_TRANSPORT_SHM[31;1m Error] [37mFailed init_port fastrtps_port7425: open_and_lock_file failed[34;1m -> Function [36mopen_port_internal[m
+[explore-5] [37;1m2024-12-05 21:23:26.241 [31;1m[[37;1mRTPS_TRANSPORT_SHM[31;1m Error] [37mFailed init_port fastrtps_port7425: open_and_lock_file failed[34;1m -> Function [36mopen_port_internal[m
+[explore-4] [INFO] [1733414006.330125932] [robot4.explore_node_4]: Waiting for costmap to become available, topic: map
+[explore-1] [INFO] [1733414006.433118654] [robot1.explore_node_1]: Waiting for costmap to become available, topic: map
+[explore-3] [INFO] [1733414006.471179806] [robot3.explore_node_3]: Waiting for costmap to become available, topic: map
+[explore-2] [INFO] [1733414006.537424003] [robot2.explore_node_2]: Waiting for costmap to become available, topic: map
+[explore-6] [INFO] [1733414006.794486855] [robot6.explore_node_6]: Waiting for costmap to become available, topic: map
+[explore-5] [INFO] [1733414006.863110388] [robot5.explore_node_5]: Waiting for costmap to become available, topic: map
+[explore-6] [INFO] [1733414044.376307354] [rclcpp]: signal_handler(signum=2)
+[explore-3] [INFO] [1733414044.376307394] [rclcpp]: signal_handler(signum=2)
+[explore-2] [INFO] [1733414044.376309818] [rclcpp]: signal_handler(signum=2)
+[explore-5] [INFO] [1733414044.376307313] [rclcpp]: signal_handler(signum=2)
+[explore-4] [INFO] [1733414044.376307313] [rclcpp]: signal_handler(signum=2)
+[explore-1] [INFO] [1733414044.376310059] [rclcpp]: signal_handler(signum=2)
+[explore-5] terminate called after throwing an instance of 'rclcpp::exceptions::RCLError'
+[explore-5]   what():  failed to create guard condition: the given context is not valid, either rcl_init() was not called or rcl_shutdown() was called., at ./src/rcl/guard_condition.c:67
