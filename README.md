@@ -1,4 +1,4 @@
-# Multi-Robot Exploration and Patrolling with Object Detection
+# Multi-Robot Exploration and Patrolling with Object Detection - InterIIT Techmeet 13.0
 
 
 Memory updated
