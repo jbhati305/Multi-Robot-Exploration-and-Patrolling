@@ -1,9 +1,6 @@
 # Multi-Robot Exploration and Patrolling with Object Detection - InterIIT Techmeet 13.0
 
 
-Memory updated
-Here's the revised version of your text with improved grammar and a more professional tone:
-
 This project deploys multiple TurtleBot3 robots in a custom Gazebo world, with each robot operating within its own map. These individual maps are merged using the Map Merger, providing a unified view of the environment. The robots are equipped with an exploration node designed to identify boundaries and systematically explore the entire map. Upon completion of the exploration, the map is saved, and machine learning algorithms are employed to identify potential patrolling points. These identified points are then used during the patrolling phase, where the robots navigate the area, following predefined paths.
 
 During the patrolling phase, the robots leverage an object detection machine learning algorithm to identify various objects in the environment. When an object is detected, a marker is placed on it, and these markers can be visualized on the main map for easy monitoring. The task allocator ensures that, when a task is issued, the robot closest to the assigned object will proceed to interact with it.
